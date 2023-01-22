@@ -20,8 +20,8 @@ def remcheck():
         dat = data.readlines()
         for n in range (len(dat)):
             beb = dat[n]
-            bob = beb.split(",")
-            if (bob[1]) == str(current_time):
+            bob = beb.strip()
+            if bob.endswith(current_time):
                 title = str(bob[0])
                 notification.notify(title="OmegaStudent Reminder", message=title, app_icon=None, timeout=20, toast=False)
                 with open("reminders.txt", "r") as f:
